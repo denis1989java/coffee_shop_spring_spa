@@ -1,0 +1,25 @@
+<b:beans xmlns="http://www.springframework.org/schema/security"
+         xmlns:b="http://www.springframework.org/schema/beans"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/security
+		http://www.springframework.org/schema/security/spring-security-4.2.xsd">
+
+    <http auto-config="true" entry-point-ref="restServicesEntryPoint">
+        <intercept-url pattern="/api/v1/admin/orders" access="isAuthenticated()"/>
+        <form-login
+                login-page='/login'
+                authentication-failure-handler-ref="authenticationFailureHandler"
+                authentication-success-handler-ref="authenticationSuccessHandler"
+        always-use-default-target="false"/>
+        <csrf disabled="true"/>
+        <logout logout-url="/logout" success-handler-ref="customLogoutSuccessHandler"/>
+    </http>
+
+    <authentication-manager alias="authenticationManager">
+        <authentication-provider user-service-ref="appUserDetailsService">
+        </authentication-provider>
+    </authentication-manager>
+
+</b:beans>

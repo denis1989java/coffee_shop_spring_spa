@@ -1,0 +1,27 @@
+.pages {
+    display: block;
+}
+
+.pages > a:hover {
+    cursor: pointer;
+}
+
+.basket{
+    float: right;
+    margin-right: 20px;
+    margin-top: 20px
+}
+.congrat {
+    color: red;
+    font-family: sans-serif, Arial;
+    font-size: 40px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 20px;
+}
+#feedback{
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+    color: red;
+}
